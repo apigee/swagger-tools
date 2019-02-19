@@ -480,11 +480,23 @@ definitions and references in your Swagger document(s).
 * **options:** `object` The middleware options
 * **options[name]:** `object` For the authorization/security name, the value is a function that will be used to
 perform the authentication/authorization.  The function signature for the callback is:
-`function (req, authOrSecDef, scopesOrApiKey, callback)`.
+`function (req, authOrSecDef, scopesOrApiKey, callback, res)`.
 
 **Returns**
 
 The Connect middleware function.
+
+**Usage**
+
+To return a 401 status code the following example can be used:
+
+```
+    res.statusCode = 401;
+    res.end();
+    return;
+```
+
+More information can be seen found on the [server response here](https://nodejs.org/api/http.html#http_class_http_serverresponse).
 
 ## Swagger UI
 

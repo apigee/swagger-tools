@@ -146,7 +146,7 @@ exports = module.exports = function (options) {
               return cb(new Error('unknown security handler: ' + name));
             }
 
-            return handler(req, secDef, getScopeOrAPIKey(req, secDef, name, secReq), cb);
+            return handler(req, secDef, getScopeOrAPIKey(req, secDef, name, secReq), cb, res);
           }, function (err) {
             debug('    Security check (%s): %s', secName, _.isNull(err) ? 'allowed' : 'denied');
 
